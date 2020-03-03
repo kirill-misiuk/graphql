@@ -3,6 +3,22 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Mutation {
+  create(input: UserInput!): UserType!
+}
+
 type Query {
   hello: String!
+  users: [UserType!]!
+}
+
+input UserInput {
+  name: String!
+  age: Int!
+}
+
+type UserType {
+  _id: ID!
+  name: String!
+  age: Int!
 }
