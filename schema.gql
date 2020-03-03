@@ -5,14 +5,17 @@
 
 type Mutation {
   create(input: UserInput!): UserType!
+  delete(_id: String!): UserType!
+  update(input: UserInput!): UserType!
 }
 
 type Query {
   hello: String!
-  users: [UserType!]!
+  read: [UserType!]!
 }
 
 input UserInput {
+  _id: ID!
   name: String!
   age: Int!
 }
