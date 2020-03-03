@@ -6,21 +6,35 @@
 type Mutation {
   create(input: UserInput!): UserType!
   delete(_id: String!): UserType!
-  update(input: UserInput!): UserType!
+  update(input: UserUpdate!): UserType!
+  createObs(input: UserInput!): UserType!
+  deleteObs(_id: String!): UserType!
+  updateObs(input: UserUpdate!): UserTypeForUpdate!
 }
 
 type Query {
   hello: String!
   read: [UserType!]!
+  readObs: [UserType!]!
 }
 
 input UserInput {
-  _id: ID!
   name: String!
   age: Int!
 }
 
 type UserType {
+  name: String!
+  age: Int!
+}
+
+type UserTypeForUpdate {
+  _id: ID!
+  name: String!
+  age: Int!
+}
+
+input UserUpdate {
   _id: ID!
   name: String!
   age: Int!
